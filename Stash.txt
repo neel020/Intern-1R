@@ -1,0 +1,858 @@
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ touch index2.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ echo "Hello Amigos" > index2.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index2.html
+warning: in the working copy of 'index2.html', LF will be replaced by CRLF the next time Git touches it
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   index2.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ ls
+1rivet.txt  demo1.txt  form.html  form1.html  index.html  index2.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git stash
+Saved working directory and index state WIP on master: 1426540 commited through staging
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ ls
+1rivet.txt  demo1.txt  form.html  form1.html  index.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ echo "hiii" > index2.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ ls
+1rivet.txt  demo1.txt  form.html  form1.html  index.html  index2.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index2.html
+warning: in the working copy of 'index2.html', LF will be replaced by CRLF the next time Git touches it
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git stash pop
+Auto-merging index2.html
+CONFLICT (add/add): Merge conflict in index2.html
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both added:      index2.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ vim index2.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index2.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ ls
+1rivet.txt  demo1.txt  form.html  form1.html  index.html  index2.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git stash pop
+Auto-merging index2.html
+CONFLICT (add/add): Merge conflict in index2.html
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both added:      index2.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git stash list
+stash@{0}: WIP on master: 1426540 commited through staging
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ echo "hii sarthak" > index2.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index2.html
+warning: in the working copy of 'index2.html', LF will be replaced by CRLF the next time Git touches it
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git stash
+Saved working directory and index state WIP on master: 1426540 commited through staging
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ ls
+1rivet.txt  demo1.txt  form.html  form1.html  index.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git branch -a
+  develop
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/branch3
+  remotes/origin/child
+  remotes/origin/develop
+  remotes/origin/feature/nfeature
+  remotes/origin/master
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git branch -b sarthak
+error: unknown switch `b'
+usage: git branch [<options>] [-r | -a] [--merged] [--no-merged]
+   or: git branch [<options>] [-f] [--recurse-submodules] <branch-name> [<start-point>]
+   or: git branch [<options>] [-l] [<pattern>...]
+   or: git branch [<options>] [-r] (-d | -D) <branch-name>...
+   or: git branch [<options>] (-m | -M) [<old-branch>] <new-branch>
+   or: git branch [<options>] (-c | -C) [<old-branch>] <new-branch>
+   or: git branch [<options>] [-r | -a] [--points-at]
+   or: git branch [<options>] [-r | -a] [--format]
+
+Generic options
+    -v, --[no-]verbose    show hash and subject, give twice for upstream branch
+    -q, --[no-]quiet      suppress informational messages
+    -t, --[no-]track[=(direct|inherit)]
+                          set branch tracking configuration
+    -u, --[no-]set-upstream-to <upstream>
+                          change the upstream info
+    --[no-]unset-upstream unset the upstream info
+    --[no-]color[=<when>] use colored output
+    -r, --remotes         act on remote-tracking branches
+    --contains <commit>   print only branches that contain the commit
+    --no-contains <commit>
+                          print only branches that don't contain the commit
+    --[no-]abbrev[=<n>]   use <n> digits to display object names
+
+Specific git-branch actions:
+    -a, --all             list both remote-tracking and local branches
+    -d, --[no-]delete     delete fully merged branch
+    -D                    delete branch (even if not merged)
+    -m, --[no-]move       move/rename a branch and its reflog
+    -M                    move/rename a branch, even if target exists
+    --[no-]omit-empty     do not output a newline after empty formatted refs
+    -c, --[no-]copy       copy a branch and its reflog
+    -C                    copy a branch, even if target exists
+    -l, --[no-]list       list branch names
+    --[no-]show-current   show current branch name
+    --[no-]create-reflog  create the branch's reflog
+    --[no-]edit-description
+                          edit the description for the branch
+    -f, --[no-]force      force creation, move/rename, deletion
+    --merged <commit>     print only branches that are merged
+    --no-merged <commit>  print only branches that are not merged
+    --[no-]column[=<style>]
+                          list branches in columns
+    --[no-]sort <key>     field name to sort on
+    --[no-]points-at <object>
+                          print only branches of the object
+    -i, --[no-]ignore-case
+                          sorting and filtering are case insensitive
+    --[no-]recurse-submodules
+                          recurse through submodules
+    --[no-]format <format>
+                          format to use for the output
+
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git checkout -b sarthak
+Switched to a new branch 'sarthak'
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ ls
+1rivet.txt  demo1.txt  form.html  form1.html  index.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git commit -m "commit from sarthak"
+[sarthak 19e2b26] commit from sarthak
+ 1 file changed, 1 insertion(+), 15 deletions(-)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 526 bytes | 263.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote:
+remote: Create a pull request for 'sarthak' on GitHub by visiting:
+remote:      https://github.com/neel020/Intern-1R/pull/new/sarthak
+remote:
+To github.com:neel020/Intern-1R.git
+ * [new branch]      sarthak -> sarthak
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ ls
+1rivet.txt  demo1.txt  form.html  form1.html  index.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git checkout sarthak
+Switched to branch 'sarthak'
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git rebase master
+Current branch sarthak is up to date.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git commit -m "add commit index"
+[master f0f05df] add commit index
+ 1 file changed, 1 insertion(+)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 287 bytes | 287.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:neel020/Intern-1R.git
+   f4fbf01..f0f05df  master -> master
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git checkout sarthak
+Switched to branch 'sarthak'
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git rebase master
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+error: could not apply 19e2b26... commit from sarthak
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config advice.mergeConflict false"
+Could not apply 19e2b26... commit from sarthak
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/1)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/1)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/1)
+$ git commit -m "changes solved rebase"
+[detached HEAD 3ea6fb2] changes solved rebase
+ 1 file changed, 2 insertions(+), 13 deletions(-)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/1)
+$ git push origin sarthak
+Everything up-to-date
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/1)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/1)
+$ git rebase --continue
+Successfully rebased and updated refs/heads/sarthak.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+To github.com:neel020/Intern-1R.git
+ ! [rejected]        sarthak -> sarthak (non-fast-forward)
+error: failed to push some refs to 'github.com:neel020/Intern-1R.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git pull origin sarthak
+From github.com:neel020/Intern-1R
+ * branch            sarthak    -> FETCH_HEAD
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git merge --abort
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git status
+On branch sarthak
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git commit -am "commited"
+On branch sarthak
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+To github.com:neel020/Intern-1R.git
+ ! [rejected]        sarthak -> sarthak (non-fast-forward)
+error: failed to push some refs to 'github.com:neel020/Intern-1R.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git pull origin sarthak
+From github.com:neel020/Intern-1R
+ * branch            sarthak    -> FETCH_HEAD
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git status
+On branch sarthak
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        style.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git commit -m "conflict resolved"
+[sarthak 4646b34] conflict resolved
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 610 bytes | 305.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To github.com:neel020/Intern-1R.git
+   19e2b26..4646b34  sarthak -> sarthak
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git commit -m "modified index file"
+[master 0636922] modified index file
+ 1 file changed, 1 insertion(+), 18 deletions(-)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 290 bytes | 290.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:neel020/Intern-1R.git
+   f0f05df..0636922  master -> master
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git checkout sarthak'
+> ^C
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git checkout sarthak
+Switched to branch 'sarthak'
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git rebase master
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+error: could not apply 3ea6fb2... changes solved rebase
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config advice.mergeConflict false"
+Could not apply 3ea6fb2... changes solved rebase
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/2)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|REBASE 1/2)
+$ git rebase --abort
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+changes solved rebase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+commit from sarthak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[detached HEAD dc99263] commit from sarthak
+ 1 file changed, 4 insertions(+)
+Successfully rebased and updated refs/heads/sarthak.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git status
+On branch sarthak
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Stash.txt
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+To github.com:neel020/Intern-1R.git
+ ! [rejected]        sarthak -> sarthak (non-fast-forward)
+error: failed to push some refs to 'github.com:neel020/Intern-1R.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git pull origin
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git pull origin sarthak
+From github.com:neel020/Intern-1R
+ * branch            sarthak    -> FETCH_HEAD
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git commit -m "commited rebase changes"
+[sarthak b600fde] commited rebase changes
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 966 bytes | 483.00 KiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+To github.com:neel020/Intern-1R.git
+   4646b34..b600fde  sarthak -> sarthak
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git commit -m "sarthak change"
+[sarthak 7585a7c] sarthak change
+ 1 file changed, 1 insertion(+), 22 deletions(-)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 286 bytes | 286.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:neel020/Intern-1R.git
+   b600fde..7585a7c  sarthak -> sarthak
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index.html
+Stash.txt   index.html  style.css
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git commit -m "master commit"
+[master b57be32] master commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 276 bytes | 276.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:neel020/Intern-1R.git
+   0636922..b57be32  master -> master
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (master)
+$ git checkout sarthak
+Switched to branch 'sarthak'
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git rebase master
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+error: could not apply b0a74e6... changes solved rebase
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+commit from sarthak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+commit from sarthak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sarthak change
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[detached HEAD 1eceda7] sarthak change
+ 1 file changed, 4 deletions(-)
+Successfully rebased and updated refs/heads/sarthak.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git commit -m "rebase solved"
+On branch sarthak
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Stash.txt
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+To github.com:neel020/Intern-1R.git
+ ! [rejected]        sarthak -> sarthak (non-fast-forward)
+error: failed to push some refs to 'github.com:neel020/Intern-1R.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git pull origin sarthak
+From github.com:neel020/Intern-1R
+ * branch            sarthak    -> FETCH_HEAD
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git add index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak|MERGING)
+$ git commit -m "rebase conflict solve"
+[sarthak d7a003c] rebase conflict solve
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ vim index.html
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$ git push origin sarthak
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (12/12), 1.06 KiB | 360.00 KiB/s, done.
+Total 12 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 1 local object.
+To github.com:neel020/Intern-1R.git
+   7585a7c..d7a003c  sarthak -> sarthak
+
+neel.patel@1R-56 MINGW64 /c/git/nconflict/Intern-1R (sarthak)
+$
